@@ -21,6 +21,7 @@ firstRow.forEach((item) => {
   const button = document.createElement('div');
   const buttonSpan = document.createElement('span');
   button.classList.add('button');
+  button.classList.add(`${item.name}`);
   buttonSpan.innerText = item.value;
   button.append(buttonSpan);
   keyboard.append(button);
