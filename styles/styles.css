@@ -117,6 +117,18 @@ body {
 
 
 /* BUTTONS STYLES */
+.active-key{
+  top: 0.1em;
+  box-shadow: 0 0px 30px rgba(93, 255, 247, 0.9);
+}
+.active-key span {
+  color: rgb(93, 255, 247);
+}
+.active-key::before {
+  background: #5dfff7;
+}
+
+
 .Backspace {
   width: 120px;
 }

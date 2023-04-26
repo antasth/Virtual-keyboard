@@ -32,11 +32,17 @@ keyboard.addEventListener('click', (event) => {
   }
 });
 
-function handle(e) {
+function onKeyPressed(e) {
   keyboard.childNodes.forEach((element) => {
     if (element.classList.contains(e.code)) {
       console.log(element);
+      if (e.type === 'keydown') {
+        element.classList.add('active-key');
+      } else {
+        element.classList.remove('active-key');
+      }
     }
   });
 }
-textArea.onkeydown = handle;
+textArea.onkeydown = onKeyPressed;
+textArea.onkeyup = onKeyPressed;
