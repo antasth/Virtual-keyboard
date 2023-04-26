@@ -16,3 +16,12 @@ content.append(textArea, keyboard);
 const firstRow = buttons.filter((item) => item.row === 1);
 
 console.log(firstRow);
+
+firstRow.forEach((item) => {
+  const button = document.createElement('div');
+  const buttonSpan = document.createElement('span');
+  button.classList.add('button');
+  buttonSpan.innerText = item.value;
+  button.append(buttonSpan);
+  keyboard.append(button);
+});

@@ -29,11 +29,87 @@ body {
   max-width: 100%;
   background-color: #040c1b;
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   justify-content: space-between;
   row-gap: 10px;
   padding: 1rem;
   border: 3px solid rgb(93, 255, 247);
   border-radius: 10px;
   margin: 20px;
+}
+
+.button {
+  height: 50px;
+  width: 50px;
+  border-radius: 5px;
+  box-shadow: 0 0px 30px rgba(246, 249, 198, 0.2);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.button:hover {
+  box-shadow: 0 0px 30px rgba(93, 255, 247, 0.6);
+}
+.button:active {
+  top: 0.1em;
+  box-shadow: 0 0px 30px rgba(93, 255, 247, 0.9);
+}
+.button span {
+  position: absolute;
+  white-space: nowrap;
+  font-size: 22px;
+  font-weight: bold;
+  color: #29d6d1;
+  z-index: 5;
+}
+.button:active span {
+  color: rgb(93, 255, 247);
+}
+.button::before {
+  content: '';
+  height: 150%;
+  width: 150%;
+  position: absolute;
+  background: conic-gradient(
+    #fe2197,
+    #b102b7,
+    #3363ff,
+    #b102b7,
+    #3363ff,
+    #b102b7,
+    #fe2197
+  );
+  /* animation: spin 3s infinite linear; */
+}
+.button:hover::before {
+  background: conic-gradient(#fe2197, #b102b7, #3363ff, #b102b7);
+  animation: spin 1.5s infinite linear;
+}
+.button:active::before {
+  background: #5dfff7;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(-360deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
+}
+.button::after {
+  content: '';
+  position: absolute;
+  /* background-color: #2d2c36; */
+  background-color: #001219;
+  height: 90%;
+  width: 90%;
+  border-radius: 5px;
+}
+.button:active:after {
+  background-color: #081b23;
 }
