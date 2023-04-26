@@ -113,3 +113,14 @@ body {
 .button:active:after {
   background-color: #081b23;
 }
+
+
+/* BUTTONS STYLES */
+.backspace {
+  width: 120px;
+}
+
+.button.backspace::before {
+    height: 260%;
+    width: 260%;
+}
