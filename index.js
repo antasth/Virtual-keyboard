@@ -26,3 +26,10 @@ firstRow.forEach((item) => {
   button.append(buttonSpan);
   keyboard.append(button);
 });
+
+keyboard.addEventListener('click', (event) => {
+  if (event.target !== keyboard) {
+    console.log(event.target.innerText);
+    textArea.value += event.target.innerText;
+  }
+});
