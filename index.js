@@ -1,7 +1,6 @@
 import buttons from './data/buttons.js';
 
 const body = document.querySelector('body');
-console.log(body);
 
 const content = document.createElement('div');
 content.classList.add('content');
@@ -29,7 +28,15 @@ firstRow.forEach((item) => {
 
 keyboard.addEventListener('click', (event) => {
   if (event.target !== keyboard) {
-    console.log(event.target.innerText);
     textArea.value += event.target.innerText;
   }
 });
+
+function handle(e) {
+  keyboard.childNodes.forEach((element) => {
+    if (element.classList.contains(e.code)) {
+      console.log(element);
+    }
+  });
+}
+textArea.onkeydown = handle;
