@@ -31,7 +31,11 @@ function createKeyboard(buttonsArray) {
 createKeyboard(buttons);
 
 keyboard.addEventListener('click', (event) => {
-  if (event.target !== keyboard) {
+  console.log(event.target);
+  if (
+    event.target !== keyboard &&
+    !event.target.classList.contains('keyboard__row')
+  ) {
     textArea.value += event.target.innerText;
   }
 });
