@@ -31,7 +31,6 @@ function createKeyboard(buttonsArray) {
 createKeyboard(buttons);
 
 keyboard.addEventListener('click', (event) => {
-  console.log(event.target);
   if (
     event.target !== keyboard &&
     !event.target.classList.contains('keyboard__row')
@@ -41,7 +40,8 @@ keyboard.addEventListener('click', (event) => {
 });
 
 function onKeyPressed(e) {
-  keyboard.childNodes.forEach((element) => {
+  const keyboardButtons = document.querySelectorAll('.button');
+  keyboardButtons.forEach((element) => {
     if (element.classList.contains(e.code)) {
       console.log(element);
       if (e.type === 'keydown') {
