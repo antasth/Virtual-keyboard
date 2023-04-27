@@ -108,24 +108,6 @@ const buttons = [
     row: 2,
   },
   {
-    id: 18,
-    value: 'w',
-    name: 'KeyW',
-    row: 2,
-  },
-  {
-    id: 18,
-    value: 'w',
-    name: 'KeyW',
-    row: 2,
-  },
-  {
-    id: 18,
-    value: 'w',
-    name: 'KeyW',
-    row: 2,
-  },
-  {
     id: 19,
     value: 'e',
     name: 'KeyE',
