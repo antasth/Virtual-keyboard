@@ -21,7 +21,7 @@ function createKeyboard(buttonsArray) {
       const buttonSpan = document.createElement('span');
       button.classList.add('button');
       button.classList.add(`${item.name}`);
-      buttonSpan.innerText = item.value;
+      buttonSpan.innerHTML = item.value;
       button.append(buttonSpan);
       keyboardRow.append(button);
     });
@@ -54,3 +54,6 @@ function onKeyPressed(e) {
 }
 textArea.onkeydown = onKeyPressed;
 textArea.onkeyup = onKeyPressed;
+
+// const arrow = document.querySelector('.ArrowDown');
+// arrow.content = '&#9742;';
