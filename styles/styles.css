@@ -41,6 +41,7 @@ body {
 .keyboard__row {
   display: flex;
   justify-content: space-between;
+  column-gap: 8px;
 }
 .button {
   height: 50px;
@@ -118,9 +119,8 @@ body {
   background-color: #081b23;
 }
 
-
 /* BUTTONS STYLES */
-.active-key{
+.active-key {
   top: 0.1em;
   box-shadow: 0 0px 30px rgba(93, 255, 247, 0.9);
 }
@@ -131,12 +131,26 @@ body {
   background: #5dfff7;
 }
 
-
-.Backspace {
-  width: 120px;
+.Backspace,
+.CapsLock,
+.Enter,
+.Tab,
+.Delete,
+.ShiftLeft,
+.ShiftRight,
+.ControlLeft,
+.ControlRight,
+.Space {
+  flex-grow: 1;
 }
-
-.button.backspace::before {
-    height: 260%;
-    width: 260%;
+.Space {
+  flex-grow: 1;
+}
+.ControlLeft,
+.ControlRight {
+  max-width: 80px;
+}
+.button.Enter::before {
+  height: 260%;
+  width: 260%;
 }

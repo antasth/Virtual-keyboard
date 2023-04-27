@@ -175,6 +175,12 @@ const buttons = [
   },
   {
     id: 30,
+    value: 'del',
+    name: 'Delete',
+    row: 2,
+  },
+  {
+    id: 30,
     value: 'caps lock',
     name: 'CapsLock',
     row: 3,
