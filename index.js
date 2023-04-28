@@ -11,7 +11,7 @@ textArea.classList.add('text-area');
 body.append(content);
 content.append(textArea, keyboard);
 
-function createKeyboard(buttonsArray) {
+const createKeyboard = (buttonsArray) => {
   for (let i = 1; i <= 5; i += 1) {
     const row = buttonsArray.filter((item) => item.row === i);
     const keyboardRow = document.createElement('div');
@@ -27,7 +27,7 @@ function createKeyboard(buttonsArray) {
     });
     keyboard.append(keyboardRow);
   }
-}
+};
 createKeyboard(buttons);
 
 keyboard.addEventListener('click', (event) => {
@@ -39,11 +39,10 @@ keyboard.addEventListener('click', (event) => {
   }
 });
 
-function onKeyPressed(e) {
+const onKeyPressed = (e) => {
   const keyboardButtons = document.querySelectorAll('.button');
   keyboardButtons.forEach((element) => {
     if (element.classList.contains(e.code)) {
-      console.log(element);
       if (e.type === 'keydown') {
         element.classList.add('active-key');
       } else {
@@ -51,7 +50,7 @@ function onKeyPressed(e) {
       }
     }
   });
-}
+};
 textArea.onkeydown = onKeyPressed;
 textArea.onkeyup = onKeyPressed;
 
