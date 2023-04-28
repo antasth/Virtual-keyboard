@@ -6,6 +6,15 @@
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: 'Xolonium';
+  src: url('../assets/fonts/Xolonium-Bold.woff2') format('woff2'),
+    url('../assets/fonts/Xolonium-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
 body {
   background-color: #040c1b;
   min-height: 100vh;
@@ -66,10 +75,14 @@ body {
 .button span {
   position: absolute;
   white-space: nowrap;
-  font-size: 22px;
+  font-family: 'Xolonium';
+  font-size: 24px;
   font-weight: bold;
   color: #29d6d1;
   z-index: 5;
+}
+.button.control span {
+  font-size: 14px;
 }
 .button:active span {
   color: rgb(93, 255, 247);
