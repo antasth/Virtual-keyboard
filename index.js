@@ -38,7 +38,14 @@ keyboard.addEventListener('click', (event) => {
     event.target !== keyboard &&
     !event.target.classList.contains('keyboard__row')
   ) {
-    textArea.value += event.target.innerText;
+    if (
+      event.target.classList.contains('Tab') ||
+      event.target.parentElement.classList.contains('Tab')
+    ) {
+      textArea.value += '  ';
+    } else {
+      textArea.value += event.target.innerText;
+    }
   }
 });
 
@@ -47,6 +54,10 @@ const onKeyPressed = (e) => {
   keyboardButtons.forEach((element) => {
     if (element.classList.contains(e.code)) {
       if (e.type === 'keydown') {
+        if (e.code === 'Tab') {
+          e.preventDefault();
+          textArea.value += '  ';
+        }
         element.classList.add('active-key');
       } else {
         element.classList.remove('active-key');
