@@ -35,6 +35,8 @@ createKeyboard(buttons);
 
 const toggleButtonsCase = () => {
   const keys = document.querySelectorAll('.key');
+  const caps = document.querySelector('.CapsLock');
+  caps.classList.toggle('active-key');
   keys.forEach((key) => {
     const buttonText = key;
     if (
@@ -82,9 +84,10 @@ const onKeyPressed = (e) => {
         }
         if (e.code === 'CapsLock') {
           toggleButtonsCase();
+          return;
         }
         element.classList.add('active-key');
-      } else {
+      } else if (e.code !== 'CapsLock') {
         element.classList.remove('active-key');
       }
     }
