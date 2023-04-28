@@ -8,6 +8,10 @@ keyboard.classList.add('keyboard');
 const textArea = document.createElement('textarea');
 textArea.classList.add('text-area');
 
+document.addEventListener('click', () => {
+  textArea.focus();
+});
+
 body.append(content);
 content.append(textArea, keyboard);
 
@@ -52,6 +56,3 @@ const onKeyPressed = (e) => {
 };
 textArea.onkeydown = onKeyPressed;
 textArea.onkeyup = onKeyPressed;
-
-// const arrow = document.querySelector('.ArrowDown');
-// arrow.content = '&#9742;';
