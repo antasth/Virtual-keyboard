@@ -49,6 +49,21 @@ keyboard.addEventListener('click', (event) => {
   }
 });
 
+const toggleButtonsCase = () => {
+  const keys = document.querySelectorAll('.key');
+  keys.forEach((key) => {
+    const buttonText = key;
+    if (
+      buttonText.firstChild.textContent ===
+      buttonText.firstChild.textContent.toUpperCase()
+    ) {
+      buttonText.firstChild.textContent = key.innerText.toLowerCase();
+    } else {
+      buttonText.firstChild.textContent = key.innerText.toUpperCase();
+    }
+  });
+};
+
 const onKeyPressed = (e) => {
   const keyboardButtons = document.querySelectorAll('.button');
   keyboardButtons.forEach((element) => {
@@ -57,6 +72,10 @@ const onKeyPressed = (e) => {
         if (e.code === 'Tab') {
           e.preventDefault();
           textArea.value += '  ';
+        }
+        if (e.code === 'CapsLock') {
+          console.log('caps');
+          toggleButtonsCase();
         }
         element.classList.add('active-key');
       } else {
