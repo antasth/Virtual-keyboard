@@ -19,8 +19,7 @@ const createKeyboard = (buttonsArray) => {
     row.forEach((item) => {
       const button = document.createElement('div');
       const buttonSpan = document.createElement('span');
-      button.classList.add('button');
-      button.classList.add(`${item.name}`);
+      button.classList.add('button', `${item.name}`, `${item.type}`);
       buttonSpan.innerHTML = item.value;
       button.append(buttonSpan);
       keyboardRow.append(button);
