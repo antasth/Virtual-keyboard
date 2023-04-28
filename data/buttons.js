@@ -266,13 +266,6 @@ const buttons = [
     row: 3,
   },
   {
-    id: 38,
-    value: 'j',
-    name: 'KeyJ',
-    type: 'key',
-    row: 3,
-  },
-  {
     id: 39,
     value: 'k',
     name: 'KeyK',
