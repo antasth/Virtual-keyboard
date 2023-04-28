@@ -33,22 +33,6 @@ const createKeyboard = (buttonsArray) => {
 };
 createKeyboard(buttons);
 
-keyboard.addEventListener('click', (event) => {
-  if (
-    event.target !== keyboard &&
-    !event.target.classList.contains('keyboard__row')
-  ) {
-    if (
-      event.target.classList.contains('Tab') ||
-      event.target.parentElement.classList.contains('Tab')
-    ) {
-      textArea.value += '  ';
-    } else {
-      textArea.value += event.target.innerText;
-    }
-  }
-});
-
 const toggleButtonsCase = () => {
   const keys = document.querySelectorAll('.key');
   keys.forEach((key) => {
@@ -64,6 +48,29 @@ const toggleButtonsCase = () => {
   });
 };
 
+keyboard.addEventListener('click', (event) => {
+  if (
+    event.target !== keyboard &&
+    !event.target.classList.contains('keyboard__row')
+  ) {
+    if (
+      event.target.classList.contains('CapsLock') ||
+      event.target.parentElement.classList.contains('CapsLock')
+    ) {
+      toggleButtonsCase();
+      return;
+    }
+    if (
+      event.target.classList.contains('Tab') ||
+      event.target.parentElement.classList.contains('Tab')
+    ) {
+      textArea.value += '  ';
+    } else {
+      textArea.value += event.target.innerText;
+    }
+  }
+});
+
 const onKeyPressed = (e) => {
   const keyboardButtons = document.querySelectorAll('.button');
   keyboardButtons.forEach((element) => {
@@ -74,7 +81,6 @@ const onKeyPressed = (e) => {
           textArea.value += '  ';
         }
         if (e.code === 'CapsLock') {
-          console.log('caps');
           toggleButtonsCase();
         }
         element.classList.add('active-key');
