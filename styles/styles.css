@@ -150,7 +150,23 @@ body {
 .ControlRight {
   max-width: 80px;
 }
-.button.Enter::before {
-  height: 260%;
-  width: 260%;
+.button.control::before {
+  height: 300%;
+  width: 200%;
+}
+.Enter::after,
+.Backspace::after,
+.CapsLock::after,
+.ShiftLeft::after,
+.ShiftRight::after {
+  height: 88%;
+  width: 94%;
+}
+.button.Space::before {
+  height: 800%;
+  width: 150%;
+}
+.button.Space::after {
+  height: 85%;
+  width: 98%;
 }
