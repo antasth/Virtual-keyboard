@@ -1,5 +1,15 @@
 import buttons from './data/buttons.js';
 
+const controlButtons = [
+  'shift',
+  'del',
+  'backspace',
+  'enter',
+  'esc',
+  'ctrl',
+  'win',
+  'alt',
+];
 const body = document.querySelector('body');
 const content = document.createElement('div');
 content.classList.add('content');
@@ -135,11 +145,7 @@ keyboard.addEventListener('click', (event) => {
       const tab = '  ';
       textArea.value = text.slice(0, position) + tab + text.slice(position);
       textArea.selectionEnd = position + 2;
-    } else if (
-      event.target.innerText !== 'shift' &&
-      event.target.innerText !== 'backspace' &&
-      event.target.innerText !== 'del'
-    ) {
+    } else if (!controlButtons.includes(event.target.innerText)) {
       textArea.value += event.target.innerText;
     }
     if (
