@@ -122,7 +122,8 @@ keyboard.addEventListener('click', (event) => {
       textArea.value += '  ';
     } else if (
       event.target.innerText !== 'shift' &&
-      event.target.innerText !== 'backspace'
+      event.target.innerText !== 'backspace' &&
+      event.target.innerText !== 'del'
     ) {
       textArea.value += event.target.innerText;
     }
@@ -135,6 +136,17 @@ keyboard.addEventListener('click', (event) => {
         const text = textArea.value;
         textArea.value = text.slice(0, position - 1) + text.slice(position);
         textArea.selectionEnd = position - 1;
+      }
+    }
+    if (
+      event.target.classList.contains('Delete') ||
+      event.target.parentElement.classList.contains('Delete')
+    ) {
+      if (textArea.value) {
+        const position = getCursorPosition();
+        const text = textArea.value;
+        textArea.value = text.slice(0, position) + text.slice(position + 1);
+        textArea.selectionEnd = position;
       }
     }
   }
