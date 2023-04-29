@@ -135,9 +135,18 @@ const onKeyPressed = (e) => {
           toggleButtonsCase();
           return;
         }
+        if (e.code === 'ShiftLeft' || e.code === 'ShiftRight') {
+          toggleSymbols();
+          toggleButtonPressed(`.${e.code}`);
+        }
         element.classList.add('active-key');
       } else if (e.code !== 'CapsLock') {
         element.classList.remove('active-key');
+
+        if (e.code === 'ShiftLeft' || e.code === 'ShiftRight') {
+          shiftState = true;
+          toggleSymbols();
+        }
       }
     }
   });
