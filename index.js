@@ -158,12 +158,7 @@ keyboard.addEventListener('click', (event) => {
       const tab = '  ';
       textArea.value = text.slice(0, position) + tab + text.slice(position);
       textArea.selectionEnd = position + 2;
-    } else if (!controlButtons.includes(event.target.innerText)) {
-      const position = getCursorPosition();
-      const text = textArea.value;
-      const symbol = event.target.innerText;
-      textArea.value = text.slice(0, position) + symbol + text.slice(position);
-      textArea.selectionEnd = position + 1;
+      return;
     }
     if (
       event.target.classList.contains('Backspace') ||
@@ -174,6 +169,7 @@ keyboard.addEventListener('click', (event) => {
         const text = textArea.value;
         textArea.value = text.slice(0, position - 1) + text.slice(position);
         textArea.selectionEnd = position - 1;
+        return;
       }
     }
     if (
@@ -185,7 +181,16 @@ keyboard.addEventListener('click', (event) => {
         const text = textArea.value;
         textArea.value = text.slice(0, position) + text.slice(position + 1);
         textArea.selectionEnd = position;
+        return;
       }
+    }
+
+    if (!controlButtons.includes(event.target.innerText)) {
+      const position = getCursorPosition();
+      const text = textArea.value;
+      const symbol = event.target.innerText;
+      textArea.value = text.slice(0, position) + symbol + text.slice(position);
+      textArea.selectionEnd = position + 1;
     }
   }
 });
