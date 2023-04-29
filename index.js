@@ -33,10 +33,15 @@ const createKeyboard = (buttonsArray) => {
 };
 createKeyboard(buttons);
 
+const toggleButtonPressed = (buttonClass) => {
+  const button = document.querySelector(`${buttonClass}`);
+  button.classList.toggle('active-key');
+};
+
+// Capslock
 const toggleButtonsCase = () => {
   const keys = document.querySelectorAll('.key');
-  const caps = document.querySelector('.CapsLock');
-  caps.classList.toggle('active-key');
+  toggleButtonPressed('.CapsLock');
   keys.forEach((key) => {
     const buttonText = key;
     if (
