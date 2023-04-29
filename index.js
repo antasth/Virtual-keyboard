@@ -110,6 +110,7 @@ keyboard.addEventListener('click', (event) => {
         const text = textArea.value;
         const enter = '\n';
         textArea.value = text.slice(0, position) + enter + text.slice(position);
+        textArea.selectionEnd = position + 1;
         return;
       }
     }
