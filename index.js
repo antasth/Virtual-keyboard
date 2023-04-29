@@ -159,7 +159,11 @@ keyboard.addEventListener('click', (event) => {
       textArea.value = text.slice(0, position) + tab + text.slice(position);
       textArea.selectionEnd = position + 2;
     } else if (!controlButtons.includes(event.target.innerText)) {
-      textArea.value += event.target.innerText;
+      const position = getCursorPosition();
+      const text = textArea.value;
+      const symbol = event.target.innerText;
+      textArea.value = text.slice(0, position) + symbol + text.slice(position);
+      textArea.selectionEnd = position + 1;
     }
     if (
       event.target.classList.contains('Backspace') ||
