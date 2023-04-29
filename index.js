@@ -110,14 +110,24 @@ keyboard.addEventListener('click', (event) => {
         return;
       }
     }
-
     if (
       event.target.classList.contains('Tab') ||
       event.target.parentElement.classList.contains('Tab')
     ) {
       textArea.value += '  ';
-    } else if (event.target.innerText !== 'shift') {
+    } else if (
+      event.target.innerText !== 'shift' &&
+      event.target.innerText !== 'backspace'
+    ) {
       textArea.value += event.target.innerText;
+    }
+    if (
+      event.target.classList.contains('Backspace') ||
+      event.target.parentElement.classList.contains('Backspace')
+    ) {
+      if (textArea.value) {
+        textArea.value = textArea.value.slice(0, textArea.value.length - 1);
+      }
     }
   }
 });
