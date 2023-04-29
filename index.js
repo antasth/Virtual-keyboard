@@ -114,6 +114,19 @@ keyboard.addEventListener('click', (event) => {
       }
     }
     if (
+      event.target.classList.contains('Space') ||
+      event.target.parentElement.classList.contains('Space')
+    ) {
+      if (textArea.value) {
+        const position = getCursorPosition();
+        const text = textArea.value;
+        const space = ' ';
+        textArea.value = text.slice(0, position) + space + text.slice(position);
+        textArea.selectionEnd = position + 1;
+        return;
+      }
+    }
+    if (
       event.target.classList.contains('ShiftLeft') ||
       event.target.parentElement.classList.contains('ShiftLeft')
     ) {
