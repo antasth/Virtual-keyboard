@@ -86,14 +86,6 @@ keyboard.addEventListener('click', (event) => {
       toggleButtonsCase();
       return;
     }
-    if (
-      event.target.classList.contains('Tab') ||
-      event.target.parentElement.classList.contains('Tab')
-    ) {
-      textArea.value += '  ';
-    } else {
-      textArea.value += event.target.innerText;
-    }
 
     if (
       event.target.classList.contains('ShiftLeft') ||
@@ -103,6 +95,7 @@ keyboard.addEventListener('click', (event) => {
       if (!rightShift.classList.contains('active-key')) {
         toggleSymbols();
         toggleButtonPressed('.ShiftLeft');
+        return;
       }
     }
 
@@ -114,7 +107,17 @@ keyboard.addEventListener('click', (event) => {
       if (!leftShift.classList.contains('active-key')) {
         toggleSymbols();
         toggleButtonPressed('.ShiftRight');
+        return;
       }
+    }
+
+    if (
+      event.target.classList.contains('Tab') ||
+      event.target.parentElement.classList.contains('Tab')
+    ) {
+      textArea.value += '  ';
+    } else if (event.target.innerText !== 'shift') {
+      textArea.value += event.target.innerText;
     }
   }
 });
