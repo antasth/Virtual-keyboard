@@ -9,6 +9,7 @@ const buttons = [
   {
     id: 2,
     value: '`',
+    symbol: '``',
     name: 'Backquote',
     type: 'key',
     row: 1,
@@ -16,6 +17,7 @@ const buttons = [
   {
     id: 3,
     value: '1',
+    symbol: '!',
     name: 'Digit1',
     type: 'key',
     row: 1,
@@ -23,6 +25,7 @@ const buttons = [
   {
     id: 4,
     value: '2',
+    symbol: '@',
     name: 'Digit2',
     type: 'key',
     row: 1,
@@ -30,6 +33,7 @@ const buttons = [
   {
     id: 5,
     value: '3',
+    symbol: '#',
     name: 'Digit3',
     type: 'key',
     row: 1,
@@ -37,6 +41,7 @@ const buttons = [
   {
     id: 6,
     value: '4',
+    symbol: '$',
     name: 'Digit4',
     type: 'key',
     row: 1,
@@ -44,6 +49,7 @@ const buttons = [
   {
     id: 7,
     value: '5',
+    symbol: '%',
     name: 'Digit5',
     type: 'key',
     row: 1,
@@ -51,6 +57,7 @@ const buttons = [
   {
     id: 8,
     value: '6',
+    symbol: '^',
     name: 'Digit6',
     type: 'key',
     row: 1,
@@ -58,6 +65,7 @@ const buttons = [
   {
     id: 9,
     value: '7',
+    symbol: '&',
     name: 'Digit7',
     type: 'key',
     row: 1,
@@ -65,6 +73,7 @@ const buttons = [
   {
     id: 10,
     value: '8',
+    symbol: '*',
     name: 'Digit8',
     type: 'key',
     row: 1,
@@ -72,6 +81,7 @@ const buttons = [
   {
     id: 11,
     value: '9',
+    symbol: '(',
     name: 'Digit9',
     type: 'key',
     row: 1,
@@ -79,6 +89,7 @@ const buttons = [
   {
     id: 12,
     value: '0',
+    symbol: ')',
     name: 'Digit0',
     type: 'key',
     row: 1,
@@ -86,6 +97,7 @@ const buttons = [
   {
     id: 13,
     value: '-',
+    symbol: '_',
     name: 'Minus',
     type: 'key',
     row: 1,
@@ -93,6 +105,7 @@ const buttons = [
   {
     id: 14,
     value: '=',
+    symbol: '+',
     name: 'Equal',
     type: 'key',
     row: 1,
@@ -184,6 +197,7 @@ const buttons = [
   {
     id: 27,
     value: '[',
+    symbol: '{',
     name: 'BracketLeft',
     type: 'key',
     row: 2,
@@ -191,6 +205,7 @@ const buttons = [
   {
     id: 28,
     value: ']',
+    symbol: '}',
     name: 'BracketRight',
     type: 'key',
     row: 2,
@@ -198,6 +213,7 @@ const buttons = [
   {
     id: 29,
     value: '\\',
+    symbol: '|',
     name: 'Backslash',
     type: 'key',
     row: 2,
@@ -281,7 +297,8 @@ const buttons = [
   },
   {
     id: 41,
-    value: ':',
+    value: ';',
+    symbol: ':',
     name: 'Semicolon',
     type: 'key',
     row: 3,
@@ -289,6 +306,7 @@ const buttons = [
   {
     id: 42,
     value: "'",
+    symbol: '"',
     name: 'Quote',
     type: 'key',
     row: 3,
@@ -359,6 +377,7 @@ const buttons = [
   {
     id: 52,
     value: ',',
+    symbol: '<',
     name: 'Comma',
     type: 'key',
     row: 4,
@@ -366,6 +385,7 @@ const buttons = [
   {
     id: 53,
     value: '.',
+    symbol: '>',
     name: 'Period',
     type: 'key',
     row: 4,
@@ -373,6 +393,7 @@ const buttons = [
   {
     id: 54,
     value: '/',
+    symbol: '?',
     name: 'Slash',
     type: 'key',
     row: 4,

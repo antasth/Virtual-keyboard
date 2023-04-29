@@ -55,6 +55,25 @@ const toggleButtonsCase = () => {
   });
 };
 
+// Shift
+let shiftState = false;
+const toggleSymbols = () => {
+  const allButtons = document.querySelectorAll('.button');
+  shiftState = !shiftState;
+  buttons.forEach((button) => {
+    if (button.symbol) {
+      const current = Array.from(allButtons).find((item) =>
+        item.classList.contains(button.name)
+      );
+      if (shiftState) {
+        current.firstChild.textContent = button.symbol;
+      } else {
+        current.firstChild.textContent = button.value;
+      }
+    }
+  });
+};
+
 keyboard.addEventListener('click', (event) => {
   if (
     event.target !== keyboard &&
@@ -74,6 +93,28 @@ keyboard.addEventListener('click', (event) => {
       textArea.value += '  ';
     } else {
       textArea.value += event.target.innerText;
+    }
+
+    if (
+      event.target.classList.contains('ShiftLeft') ||
+      event.target.parentElement.classList.contains('ShiftLeft')
+    ) {
+      const rightShift = document.querySelector('.ShiftRight');
+      if (!rightShift.classList.contains('active-key')) {
+        toggleSymbols();
+        toggleButtonPressed('.ShiftLeft');
+      }
+    }
+
+    if (
+      event.target.classList.contains('ShiftRight') ||
+      event.target.parentElement.classList.contains('ShiftRight')
+    ) {
+      const leftShift = document.querySelector('.ShiftLeft');
+      if (!leftShift.classList.contains('active-key')) {
+        toggleSymbols();
+        toggleButtonPressed('.ShiftRight');
+      }
     }
   }
 });
