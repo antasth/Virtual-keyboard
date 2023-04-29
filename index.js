@@ -91,7 +91,18 @@ keyboard.addEventListener('click', (event) => {
       toggleButtonsCase();
       return;
     }
-
+    if (
+      event.target.classList.contains('Enter') ||
+      event.target.parentElement.classList.contains('Enter')
+    ) {
+      if (textArea.value) {
+        const position = getCursorPosition();
+        const text = textArea.value;
+        const enter = '\n';
+        textArea.value = text.slice(0, position) + enter + text.slice(position);
+        return;
+      }
+    }
     if (
       event.target.classList.contains('ShiftLeft') ||
       event.target.parentElement.classList.contains('ShiftLeft')

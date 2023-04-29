@@ -189,3 +189,9 @@ body {
   height: 85%;
   width: 98%;
 }
+.button.active-key:hover {
+  box-shadow: 0 0px 30px rgba(93, 255, 247, 0.9);
+}
+.button.active-key:hover::before  {
+  background: #5dfff7;
+}
