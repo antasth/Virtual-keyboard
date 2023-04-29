@@ -119,7 +119,11 @@ keyboard.addEventListener('click', (event) => {
       event.target.classList.contains('Tab') ||
       event.target.parentElement.classList.contains('Tab')
     ) {
-      textArea.value += '  ';
+      const position = getCursorPosition();
+      const text = textArea.value;
+      const tab = '  ';
+      textArea.value = text.slice(0, position) + tab + text.slice(position);
+      textArea.selectionEnd = position + 2;
     } else if (
       event.target.innerText !== 'shift' &&
       event.target.innerText !== 'backspace' &&
@@ -159,7 +163,11 @@ const onKeyPressed = (e) => {
       if (e.type === 'keydown') {
         if (e.code === 'Tab') {
           e.preventDefault();
-          textArea.value += '  ';
+          const position = getCursorPosition();
+          const text = textArea.value;
+          const tab = '  ';
+          textArea.value = text.slice(0, position) + tab + text.slice(position);
+          textArea.selectionEnd = position + 2;
         }
         if (e.code === 'CapsLock') {
           toggleButtonsCase();
