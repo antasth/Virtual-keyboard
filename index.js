@@ -255,7 +255,16 @@ const onKeyPressed = (e) => {
           toggleButtonPressed(`.${e.code}`);
           return;
         }
-
+        if (e.code === 'Backspace') {
+          if (textArea.value) {
+            e.preventDefault();
+            const position = getCursorPosition();
+            const text = textArea.value;
+            textArea.value = text.slice(0, position - 1) + text.slice(position);
+            textArea.selectionEnd = position - 1;
+            return;
+          }
+        }
         const currentButton = document.querySelector(`.${e.code}`);
         const buttonText = currentButton.innerText;
         const position = getCursorPosition();
