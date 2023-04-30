@@ -265,6 +265,16 @@ const onKeyPressed = (e) => {
             return;
           }
         }
+        if (e.code === 'Delete') {
+          if (textArea.value) {
+            e.preventDefault();
+            const position = getCursorPosition();
+            const text = textArea.value;
+            textArea.value = text.slice(0, position) + text.slice(position + 1);
+            textArea.selectionEnd = position;
+            return;
+          }
+        }
         const currentButton = document.querySelector(`.${e.code}`);
         const buttonText = currentButton.innerText;
         const position = getCursorPosition();
