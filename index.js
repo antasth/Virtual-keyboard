@@ -34,7 +34,7 @@ const createKeyboard = (buttonsArray) => {
       const button = document.createElement('div');
       const buttonSpan = document.createElement('span');
       button.classList.add('button', `${item.name}`, `${item.type}`);
-      buttonSpan.innerHTML = item.value;
+      buttonSpan.innerHTML = item.en;
       button.append(buttonSpan);
       keyboardRow.append(button);
     });
@@ -76,14 +76,14 @@ const toggleSymbols = () => {
   const allButtons = document.querySelectorAll('.button');
   shiftState = !shiftState;
   buttons.forEach((button) => {
-    if (button.symbol) {
+    if (button.symbolen) {
       const current = Array.from(allButtons).find((item) =>
         item.classList.contains(button.name)
       );
       if (shiftState) {
-        current.firstChild.textContent = button.symbol;
+        current.firstChild.textContent = button.symbolen;
       } else {
-        current.firstChild.textContent = button.value;
+        current.firstChild.textContent = button.en;
       }
     }
   });
