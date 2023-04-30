@@ -9,6 +9,8 @@ const controlButtons = [
   'ctrl',
   'win',
   'alt',
+  'tab',
+  'caps lock',
 ];
 const body = document.querySelector('body');
 const content = document.createElement('div');
@@ -241,7 +243,6 @@ const onKeyPressed = (e) => {
           const tab = '  ';
           textArea.value = text.slice(0, position) + tab + text.slice(position);
           textArea.selectionEnd = position + 2;
-          return;
         }
         if (e.code === 'CapsLock') {
           toggleButtonsCase();
@@ -251,7 +252,6 @@ const onKeyPressed = (e) => {
         if (e.code === 'ShiftLeft' || e.code === 'ShiftRight') {
           toggleSymbols();
           toggleButtonPressed(`.${e.code}`);
-          return;
         }
         if (e.code === 'Backspace') {
           if (textArea.value) {
@@ -260,7 +260,6 @@ const onKeyPressed = (e) => {
             const text = textArea.value;
             textArea.value = text.slice(0, position - 1) + text.slice(position);
             textArea.selectionEnd = position - 1;
-            return;
           }
         }
         if (e.code === 'Delete') {
@@ -270,7 +269,6 @@ const onKeyPressed = (e) => {
             const text = textArea.value;
             textArea.value = text.slice(0, position) + text.slice(position + 1);
             textArea.selectionEnd = position;
-            return;
           }
         }
         if (e.code === 'Enter') {
@@ -282,7 +280,6 @@ const onKeyPressed = (e) => {
             textArea.value =
               text.slice(0, position) + enter + text.slice(position);
             textArea.selectionEnd = position + 1;
-            return;
           }
         }
         if (e.code === 'Space') {
@@ -293,7 +290,6 @@ const onKeyPressed = (e) => {
           textArea.value =
             text.slice(0, position) + space + text.slice(position);
           textArea.selectionEnd = position + 1;
-          return;
         }
         const buttonName = buttons.find((button) => button.name === e.code);
         if (!controlButtons.includes(buttonName.en)) {
