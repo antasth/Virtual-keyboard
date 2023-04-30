@@ -70,7 +70,7 @@ const buttons = [
   {
     id: 8,
     en: '6',
-    ru: '7',
+    ru: '6',
     symbolen: '^',
     symbolru: ':',
     name: 'Digit6',
