@@ -243,6 +243,7 @@ const onKeyPressed = (e) => {
           const tab = '  ';
           textArea.value = text.slice(0, position) + tab + text.slice(position);
           textArea.selectionEnd = position + 2;
+          return;
         }
         if (e.code === 'CapsLock') {
           toggleButtonsCase();
@@ -252,7 +253,18 @@ const onKeyPressed = (e) => {
         if (e.code === 'ShiftLeft' || e.code === 'ShiftRight') {
           toggleSymbols();
           toggleButtonPressed(`.${e.code}`);
+          return;
         }
+
+        const currentButton = document.querySelector(`.${e.code}`);
+        const buttonText = currentButton.innerText;
+        const position = getCursorPosition();
+        e.preventDefault();
+        const text = textArea.value;
+        textArea.value =
+          text.slice(0, position) + buttonText + text.slice(position);
+        textArea.selectionEnd = position + 1;
+
         element.classList.add('active-key');
       } else if (e.code !== 'CapsLock') {
         element.classList.remove('active-key');
