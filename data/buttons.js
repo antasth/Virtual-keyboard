@@ -1,9 +1,9 @@
 const buttons = [
   {
     id: 1,
-    en: 'esc',
-    ru: 'esc',
-    name: 'Escape',
+    en: 'en',
+    ru: 'ru',
+    name: 'lang',
     type: 'control',
     row: 1,
   },

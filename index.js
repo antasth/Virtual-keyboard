@@ -17,6 +17,7 @@ const keyboard = document.createElement('div');
 keyboard.classList.add('keyboard');
 const textArea = document.createElement('textarea');
 textArea.classList.add('text-area');
+let lang = 'en';
 
 document.addEventListener('click', () => {
   textArea.focus();
@@ -34,7 +35,11 @@ const createKeyboard = (buttonsArray) => {
       const button = document.createElement('div');
       const buttonSpan = document.createElement('span');
       button.classList.add('button', `${item.name}`, `${item.type}`);
-      buttonSpan.innerHTML = item.en;
+      if (lang === 'en') {
+        buttonSpan.innerHTML = item.en;
+      } else {
+        buttonSpan.innerHTML = item.ru;
+      }
       button.append(buttonSpan);
       keyboardRow.append(button);
     });
@@ -89,11 +94,38 @@ const toggleSymbols = () => {
   });
 };
 
+// lang change
+const changeLanguage = () => {
+  const allButtons = document.querySelectorAll('.button');
+  if (lang === 'ru') {
+    lang = 'en';
+  } else {
+    lang = 'ru';
+  }
+  buttons.forEach((button) => {
+    const current = Array.from(allButtons).find((item) =>
+      item.classList.contains(button.name)
+    );
+    if (lang === 'ru') {
+      current.firstChild.textContent = button.ru;
+    } else {
+      current.firstChild.textContent = button.en;
+    }
+  });
+};
+
 keyboard.addEventListener('click', (event) => {
   if (
     event.target !== keyboard &&
     !event.target.classList.contains('keyboard__row')
   ) {
+    if (
+      event.target.classList.contains('lang') ||
+      event.target.parentElement.classList.contains('lang')
+    ) {
+      changeLanguage();
+      return;
+    }
     if (
       event.target.classList.contains('CapsLock') ||
       event.target.parentElement.classList.contains('CapsLock')
