@@ -281,7 +281,20 @@ const onKeyPressed = (e) => {
             const position = getCursorPosition();
             const text = textArea.value;
             const enter = '\n';
-            textArea.value = text.slice(0, position) + enter + text.slice(position);
+            textArea.value =
+              text.slice(0, position) + enter + text.slice(position);
+            textArea.selectionEnd = position + 1;
+            return;
+          }
+        }
+        if (e.code === 'Space') {
+          if (textArea.value) {
+            e.preventDefault();
+            const position = getCursorPosition();
+            const text = textArea.value;
+            const space = ' ';
+            textArea.value =
+              text.slice(0, position) + space + text.slice(position);
             textArea.selectionEnd = position + 1;
             return;
           }
