@@ -275,6 +275,17 @@ const onKeyPressed = (e) => {
             return;
           }
         }
+        if (e.code === 'Enter') {
+          if (textArea.value) {
+            e.preventDefault();
+            const position = getCursorPosition();
+            const text = textArea.value;
+            const enter = '\n';
+            textArea.value = text.slice(0, position) + enter + text.slice(position);
+            textArea.selectionEnd = position + 1;
+            return;
+          }
+        }
         const currentButton = document.querySelector(`.${e.code}`);
         const buttonText = currentButton.innerText;
         const position = getCursorPosition();
