@@ -203,8 +203,10 @@ keyboard.addEventListener('click', (event) => {
       if (textArea.value) {
         const position = getCursorPosition();
         const text = textArea.value;
-        textArea.value = text.slice(0, position - 1) + text.slice(position);
-        textArea.selectionEnd = position - 1;
+        if (position > 0) {
+          textArea.value = text.slice(0, position - 1) + text.slice(position);
+          textArea.selectionEnd = position - 1;
+        }
         return;
       }
     }
@@ -267,8 +269,11 @@ const onKeyPressed = (e) => {
             e.preventDefault();
             const position = getCursorPosition();
             const text = textArea.value;
-            textArea.value = text.slice(0, position - 1) + text.slice(position);
-            textArea.selectionEnd = position - 1;
+            if (position > 0) {
+              textArea.value =
+                text.slice(0, position - 1) + text.slice(position);
+              textArea.selectionEnd = position - 1;
+            }
           }
         }
         if (e.code === 'Delete') {
@@ -298,7 +303,7 @@ const onKeyPressed = (e) => {
           const space = ' ';
           textArea.value =
             text.slice(0, position) + space + text.slice(position);
-          textArea.selectionStart = position;
+          textArea.selectionStart = position + 1;
         }
         const buttonName = buttons.find((button) => button.name === e.code);
         if (!controlButtons.includes(buttonName.en)) {
