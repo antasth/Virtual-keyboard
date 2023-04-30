@@ -37,6 +37,7 @@ body {
   outline: none;
   font-family: 'Xolonium';
   font-size: 32px;
+
 }
 .text-area:focus {
   outline: none;
@@ -49,8 +50,8 @@ body {
   justify-content: space-between;
   row-gap: 10px;
   padding: 1rem;
-  border: 3px solid rgb(93, 255, 247);
-  border-radius: 10px;
+  border: 5px solid #ff9408;
+  border-radius: 35px;
   margin: 20px;
 }
 .keyboard__row {
@@ -72,7 +73,7 @@ body {
 }
 
 .button:hover {
-  box-shadow: 0 0px 30px rgba(93, 255, 247, 0.6);
+  box-shadow: 0 0px 30px rgba(217, 96, 0, 0.8);
 }
 .button:active {
   top: 0.1em;
@@ -93,12 +94,15 @@ body {
 .button:active span {
   color: rgb(93, 255, 247);
 }
+.button:hover span {
+color: #eca000;
+}
 .button::before {
   content: '';
   height: 150%;
   width: 150%;
   position: absolute;
-  background: conic-gradient(
+  /* background: conic-gradient(
     #fe2197,
     #b102b7,
     #3363ff,
@@ -106,11 +110,21 @@ body {
     #3363ff,
     #b102b7,
     #fe2197
-  );
+  ); */
   /* animation: spin 3s infinite linear; */
 }
 .button:hover::before {
-  background: conic-gradient(#fe2197, #b102b7, #3363ff, #b102b7);
+  background: conic-gradient(
+    #ba0000,
+    #cb3c00,
+    #d96000,
+    #e48000,
+    #eca000,
+    #f1bf00,
+    #e48000,
+    #f60202,
+    #ba0000
+  );
   animation: spin 1.5s infinite linear;
 }
 .button:active::before {
@@ -128,8 +142,17 @@ body {
 .button::after {
   content: '';
   position: absolute;
-  /* background-color: #2d2c36; */
   background-color: #001219;
+  -webkit-box-shadow: inset 0 1px rgba(255, 255, 255, 0.4),
+    0 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.4), 0 1px 2px rgba(0, 0, 0, 0.2);
+  background-image: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.3),
+    rgba(255, 255, 255, 0) 50%,
+    rgba(0, 0, 0, 0.12) 51%,
+    rgba(0, 0, 0, 0.04)
+  );
   height: 90%;
   width: 90%;
   border-radius: 5px;
@@ -144,7 +167,7 @@ body {
   box-shadow: 0 0px 30px rgba(93, 255, 247, 0.9);
 }
 .active-key span {
-  color: rgb(93, 255, 247);
+  color: #5dfff7;
 }
 .active-key::before {
   background: #5dfff7;
@@ -192,6 +215,6 @@ body {
 .button.active-key:hover {
   box-shadow: 0 0px 30px rgba(93, 255, 247, 0.9);
 }
-.button.active-key:hover::before  {
+.button.active-key:hover::before {
   background: #5dfff7;
 }
