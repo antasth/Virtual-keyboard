@@ -107,9 +107,9 @@ const changeLanguage = () => {
       item.classList.contains(button.name)
     );
     if (lang === 'ru') {
-      current.firstChild.textContent = button.ru;
+      current.firstChild.innerHTML = button.ru;
     } else {
-      current.firstChild.textContent = button.en;
+      current.firstChild.innerHTML = button.en;
     }
   });
 };
