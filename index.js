@@ -236,6 +236,15 @@ const onKeyPressed = (e) => {
   keyboardButtons.forEach((element) => {
     if (element.classList.contains(e.code)) {
       if (e.type === 'keydown') {
+        // change lang on Ctrl + Alt combination
+        if (
+          (e.altKey && e.code === 'ControlLeft') ||
+          (e.ctrlKey && e.code === 'AltLeft')
+        ) {
+          changeLanguage();
+          e.preventDefault();
+        }
+
         if (e.code === 'Tab') {
           e.preventDefault();
           const position = getCursorPosition();
@@ -289,7 +298,7 @@ const onKeyPressed = (e) => {
           const space = ' ';
           textArea.value =
             text.slice(0, position) + space + text.slice(position);
-          textArea.selectionEnd = position + 1;
+          textArea.selectionStart = position;
         }
         const buttonName = buttons.find((button) => button.name === e.code);
         if (!controlButtons.includes(buttonName.en)) {
