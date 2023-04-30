@@ -61,7 +61,6 @@ const toggleButtonPressed = (buttonClass) => {
 // Capslock
 const toggleButtonsCase = () => {
   const keys = document.querySelectorAll('.key');
-  toggleButtonPressed('.CapsLock');
   keys.forEach((key) => {
     const buttonText = key;
     if (
@@ -92,6 +91,7 @@ const toggleSymbols = () => {
       }
     }
   });
+  toggleButtonsCase();
 };
 
 // lang change
@@ -133,6 +133,7 @@ keyboard.addEventListener('click', (event) => {
       event.target.parentElement.classList.contains('CapsLock')
     ) {
       toggleButtonsCase();
+      toggleButtonPressed('.CapsLock');
       return;
     }
     if (
@@ -245,6 +246,7 @@ const onKeyPressed = (e) => {
         }
         if (e.code === 'CapsLock') {
           toggleButtonsCase();
+          toggleButtonPressed('.CapsLock');
           return;
         }
         if (e.code === 'ShiftLeft' || e.code === 'ShiftRight') {
