@@ -17,7 +17,7 @@ const keyboard = document.createElement('div');
 keyboard.classList.add('keyboard');
 const textArea = document.createElement('textarea');
 textArea.classList.add('text-area');
-let lang = 'en';
+let lang = localStorage.getItem('lang');
 
 document.addEventListener('click', () => {
   textArea.focus();
@@ -35,7 +35,7 @@ const createKeyboard = (buttonsArray) => {
       const button = document.createElement('div');
       const buttonSpan = document.createElement('span');
       button.classList.add('button', `${item.name}`, `${item.type}`);
-      if (lang === 'en') {
+      if (localStorage.getItem('lang') === 'en') {
         buttonSpan.innerHTML = item.en;
       } else {
         buttonSpan.innerHTML = item.ru;
@@ -99,8 +99,10 @@ const changeLanguage = () => {
   const allButtons = document.querySelectorAll('.button');
   if (lang === 'ru') {
     lang = 'en';
+    localStorage.setItem('lang', lang);
   } else {
     lang = 'ru';
+    localStorage.setItem('lang', lang);
   }
   buttons.forEach((button) => {
     const current = Array.from(allButtons).find((item) =>
