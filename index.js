@@ -153,14 +153,12 @@ keyboard.addEventListener('click', (event) => {
       event.target.classList.contains('Space') ||
       event.target.parentElement.classList.contains('Space')
     ) {
-      if (textArea.value) {
-        const position = getCursorPosition();
-        const text = textArea.value;
-        const space = ' ';
-        textArea.value = text.slice(0, position) + space + text.slice(position);
-        textArea.selectionEnd = position + 1;
-        return;
-      }
+      const position = getCursorPosition();
+      const text = textArea.value;
+      const space = ' ';
+      textArea.value = text.slice(0, position) + space + text.slice(position);
+      textArea.selectionEnd = position + 1;
+      return;
     }
     if (
       event.target.classList.contains('ShiftLeft') ||
@@ -288,16 +286,14 @@ const onKeyPressed = (e) => {
           }
         }
         if (e.code === 'Space') {
-          if (textArea.value) {
-            e.preventDefault();
-            const position = getCursorPosition();
-            const text = textArea.value;
-            const space = ' ';
-            textArea.value =
-              text.slice(0, position) + space + text.slice(position);
-            textArea.selectionEnd = position + 1;
-            return;
-          }
+          e.preventDefault();
+          const position = getCursorPosition();
+          const text = textArea.value;
+          const space = ' ';
+          textArea.value =
+            text.slice(0, position) + space + text.slice(position);
+          textArea.selectionEnd = position + 1;
+          return;
         }
         const currentButton = document.querySelector(`.${e.code}`);
         const buttonText = currentButton.innerText;
