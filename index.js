@@ -295,14 +295,19 @@ const onKeyPressed = (e) => {
           textArea.selectionEnd = position + 1;
           return;
         }
-        const currentButton = document.querySelector(`.${e.code}`);
-        const buttonText = currentButton.innerText;
-        const position = getCursorPosition();
-        e.preventDefault();
-        const text = textArea.value;
-        textArea.value =
-          text.slice(0, position) + buttonText + text.slice(position);
-        textArea.selectionEnd = position + 1;
+        const buttonName = buttons.find((button) => button.name === e.code);
+        if (!controlButtons.includes(buttonName.en)) {
+          const currentButton = document.querySelector(`.${e.code}`);
+          const buttonText = currentButton.innerText;
+          const position = getCursorPosition();
+          e.preventDefault();
+          const text = textArea.value;
+          textArea.value =
+            text.slice(0, position) + buttonText + text.slice(position);
+          textArea.selectionEnd = position + 1;
+        } else {
+          e.preventDefault();
+        }
 
         element.classList.add('active-key');
       } else if (e.code !== 'CapsLock') {
