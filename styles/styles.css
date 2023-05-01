@@ -16,12 +16,9 @@
 }
 
 body {
-  background: linear-gradient(
-    0deg,
-    rgb(6, 24, 32),
-    rgb(61, 99, 110),
-    rgb(10, 58, 72)
-  );
+  background-image: url(../assets/back1.jpg);
+  background-position: center;
+  background-size: cover;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -31,7 +28,7 @@ body {
 .body-description,
 .body-language {
   font-family: 'Xolonium';
-  font-size: 20px;
+  font-size: 24px;
   color: #29d6d1;
 }
 .content {
@@ -42,11 +39,11 @@ body {
 .frame {
   display: flex;
   justify-content: center;
-  background-color: #190900;
+  margin-top: 15px;
+  background-color: rgba(25, 9, 0, 0.5);
   border-radius: 15px;
   border: 4px solid orangered;
-  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
-    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  box-shadow: 0 0px 30px rgba(255, 69, 0, 0.8);
   height: 250px;
 }
 .text-area {
@@ -58,13 +55,13 @@ body {
   outline: none;
   font-family: 'Xolonium';
   font-weight: bold;
-  font-size: 32px;
-  letter-spacing: 0.2rem;
+  font-size: 40px;
+  letter-spacing: 0.4rem;
   border: 2px solid #29d6d1;
   border-radius: 5px;
   box-shadow: 0 0px 30px rgba(93, 255, 247, 0.4);
-  background: linear-gradient(45deg, #a8edea, #fed6e3);
-  color: orangered;
+  background: rgba(178, 235, 234, 0.1);
+  color: #31f5ee;
 }
 .text-area:focus {
   outline: none;
@@ -80,7 +77,8 @@ body {
   border: 5px solid #29d6d1;
   box-shadow: 0 0px 30px rgba(93, 255, 247, 0.9);
   border-radius: 35px;
-  margin: 20px;
+  margin: 15px 20px 0;
+  margin-top: 10px;
 }
 .keyboard__row {
   display: flex;
@@ -101,7 +99,7 @@ body {
 }
 
 .button:hover {
-  box-shadow: 0 0px 30px rgba(217, 96, 0, 0.8);
+  box-shadow: 0 0px 30px rgba(255, 69, 0, 0.8);;
 }
 .button:active {
   top: 0.1em;

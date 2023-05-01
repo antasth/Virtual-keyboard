@@ -28,17 +28,17 @@ document.addEventListener('click', () => {
   textArea.focus();
 });
 
-body.append(content);
-frame.append(textArea);
-content.append(frame, keyboard);
-
 const osText = document.createElement('h3');
 osText.classList.add('body-description');
 osText.innerText = 'Клавиатура создана в операционной системе Windows';
 const languageText = document.createElement('h3');
 languageText.classList.add('body-language');
 languageText.innerText = 'Для переключения языка комбинация: левыe ctrl + alt';
+
 body.append(osText, languageText);
+body.append(content);
+frame.append(textArea);
+content.append(frame, keyboard);
 
 const createKeyboard = (buttonsArray) => {
   for (let i = 1; i <= 5; i += 1) {
