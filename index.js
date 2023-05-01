@@ -20,6 +20,7 @@ keyboard.classList.add('keyboard');
 const textArea = document.createElement('textarea');
 textArea.classList.add('text-area');
 let lang = localStorage.getItem('lang');
+let caps = false;
 
 document.addEventListener('click', () => {
   textArea.focus();
@@ -62,6 +63,7 @@ const toggleButtonPressed = (buttonClass) => {
 
 // Capslock
 const toggleButtonsCase = () => {
+  caps = !caps;
   const keys = document.querySelectorAll('.key');
   keys.forEach((key) => {
     const buttonText = key;
@@ -73,6 +75,14 @@ const toggleButtonsCase = () => {
     } else {
       buttonText.firstChild.textContent = key.innerText.toUpperCase();
     }
+  });
+};
+//only to upperCase
+const changeToUpperCase = () => {
+  const keys = document.querySelectorAll('.key');
+  keys.forEach((key) => {
+    const buttonText = key;
+    buttonText.firstChild.textContent = key.innerText.toUpperCase();
   });
 };
 
@@ -93,7 +103,6 @@ const toggleSymbols = () => {
       }
     }
   });
-  toggleButtonsCase();
 };
 
 // lang change
@@ -116,6 +125,9 @@ const changeLanguage = () => {
       current.firstChild.innerHTML = button.en;
     }
   });
+  if (caps) {
+    changeToUpperCase();
+  }
 };
 
 keyboard.addEventListener('click', (event) => {
