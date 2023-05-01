@@ -97,7 +97,11 @@ const toggleSymbols = () => {
         item.classList.contains(button.name)
       );
       if (shiftState) {
-        current.firstChild.textContent = button.symbolen;
+        if (lang === 'en') {
+          current.firstChild.textContent = button.symbolen;
+        } else {
+          current.firstChild.textContent = button.symbolru;
+        }
       } else {
         current.firstChild.textContent = button.en;
       }
