@@ -79,8 +79,8 @@ const toggleButtonsCase = () => {
   keys.forEach((key) => {
     const buttonText = key;
     if (
-      buttonText.firstChild.textContent ===
-      buttonText.firstChild.textContent.toUpperCase()
+      buttonText.firstChild.textContent
+       === buttonText.firstChild.textContent.toUpperCase()
     ) {
       buttonText.firstChild.textContent = key.innerText.toLowerCase();
     } else {
@@ -88,7 +88,7 @@ const toggleButtonsCase = () => {
     }
   });
 };
-//only to upperCase
+
 const changeToUpperCase = () => {
   const keys = document.querySelectorAll('.key');
   keys.forEach((key) => {
@@ -104,9 +104,7 @@ const toggleSymbols = () => {
   shiftState = !shiftState;
   buttons.forEach((button) => {
     if (button.symbolen) {
-      const current = Array.from(allButtons).find((item) =>
-        item.classList.contains(button.name)
-      );
+      const current = Array.from(allButtons).find((item) => item.classList.contains(button.name));
       if (shiftState) {
         if (lang === 'en') {
           current.firstChild.textContent = button.symbolen;
@@ -132,9 +130,7 @@ const changeLanguage = () => {
     localStorage.setItem('lang', lang);
   }
   buttons.forEach((button) => {
-    const current = Array.from(allButtons).find((item) =>
-      item.classList.contains(button.name)
-    );
+    const current = Array.from(allButtons).find((item) => item.classList.contains(button.name));
     if (lang === 'ru') {
       current.firstChild.innerHTML = button.ru;
     } else {
@@ -148,27 +144,27 @@ const changeLanguage = () => {
 
 keyboard.addEventListener('click', (event) => {
   if (
-    event.target !== keyboard &&
-    !event.target.classList.contains('keyboard__row')
+    event.target !== keyboard
+    && !event.target.classList.contains('keyboard__row')
   ) {
     if (
-      event.target.classList.contains('lang') ||
-      event.target.parentElement.classList.contains('lang')
+      event.target.classList.contains('lang')
+      || event.target.parentElement.classList.contains('lang')
     ) {
       changeLanguage();
       return;
     }
     if (
-      event.target.classList.contains('CapsLock') ||
-      event.target.parentElement.classList.contains('CapsLock')
+      event.target.classList.contains('CapsLock')
+      || event.target.parentElement.classList.contains('CapsLock')
     ) {
       toggleButtonsCase();
       toggleButtonPressed('.CapsLock');
       return;
     }
     if (
-      event.target.classList.contains('Enter') ||
-      event.target.parentElement.classList.contains('Enter')
+      event.target.classList.contains('Enter')
+      || event.target.parentElement.classList.contains('Enter')
     ) {
       const position = getCursorPosition();
       const text = textArea.value;
@@ -178,8 +174,8 @@ keyboard.addEventListener('click', (event) => {
       return;
     }
     if (
-      event.target.classList.contains('Space') ||
-      event.target.parentElement.classList.contains('Space')
+      event.target.classList.contains('Space')
+      || event.target.parentElement.classList.contains('Space')
     ) {
       const position = getCursorPosition();
       const text = textArea.value;
@@ -189,8 +185,8 @@ keyboard.addEventListener('click', (event) => {
       return;
     }
     if (
-      event.target.classList.contains('ShiftLeft') ||
-      event.target.parentElement.classList.contains('ShiftLeft')
+      event.target.classList.contains('ShiftLeft')
+      || event.target.parentElement.classList.contains('ShiftLeft')
     ) {
       const rightShift = document.querySelector('.ShiftRight');
       if (!rightShift.classList.contains('active-key')) {
@@ -201,8 +197,8 @@ keyboard.addEventListener('click', (event) => {
     }
 
     if (
-      event.target.classList.contains('ShiftRight') ||
-      event.target.parentElement.classList.contains('ShiftRight')
+      event.target.classList.contains('ShiftRight')
+      || event.target.parentElement.classList.contains('ShiftRight')
     ) {
       const leftShift = document.querySelector('.ShiftLeft');
       if (!leftShift.classList.contains('active-key')) {
@@ -212,8 +208,8 @@ keyboard.addEventListener('click', (event) => {
       }
     }
     if (
-      event.target.classList.contains('Tab') ||
-      event.target.parentElement.classList.contains('Tab')
+      event.target.classList.contains('Tab')
+      || event.target.parentElement.classList.contains('Tab')
     ) {
       const position = getCursorPosition();
       const text = textArea.value;
@@ -223,8 +219,8 @@ keyboard.addEventListener('click', (event) => {
       return;
     }
     if (
-      event.target.classList.contains('Backspace') ||
-      event.target.parentElement.classList.contains('Backspace')
+      event.target.classList.contains('Backspace')
+      || event.target.parentElement.classList.contains('Backspace')
     ) {
       if (textArea.value) {
         const position = getCursorPosition();
@@ -237,8 +233,8 @@ keyboard.addEventListener('click', (event) => {
       }
     }
     if (
-      event.target.classList.contains('Delete') ||
-      event.target.parentElement.classList.contains('Delete')
+      event.target.classList.contains('Delete')
+      || event.target.parentElement.classList.contains('Delete')
     ) {
       if (textArea.value) {
         const position = getCursorPosition();
@@ -266,8 +262,8 @@ const onKeyPressed = (e) => {
       if (e.type === 'keydown') {
         // change lang on Ctrl + Alt combination
         if (
-          (e.altKey && e.code === 'ControlLeft') ||
-          (e.ctrlKey && e.code === 'AltLeft')
+          (e.altKey && e.code === 'ControlLeft')
+          || (e.ctrlKey && e.code === 'AltLeft')
         ) {
           changeLanguage();
           e.preventDefault();
@@ -296,8 +292,7 @@ const onKeyPressed = (e) => {
             const position = getCursorPosition();
             const text = textArea.value;
             if (position > 0) {
-              textArea.value =
-                text.slice(0, position - 1) + text.slice(position);
+              textArea.value = text.slice(0, position - 1) + text.slice(position);
               textArea.selectionEnd = position - 1;
             }
           }
@@ -316,8 +311,7 @@ const onKeyPressed = (e) => {
           const position = getCursorPosition();
           const text = textArea.value;
           const enter = '\n';
-          textArea.value =
-            text.slice(0, position) + enter + text.slice(position);
+          textArea.value = text.slice(0, position) + enter + text.slice(position);
           textArea.selectionEnd = position + 1;
         }
         if (e.code === 'Space') {
@@ -328,12 +322,10 @@ const onKeyPressed = (e) => {
         if (!controlButtons.includes(buttonName.en)) {
           const currentButton = document.querySelector(`.${e.code}`);
           const buttonText = currentButton.innerText;
-          // const buttonText = ' ';
           const position = getCursorPosition();
           e.preventDefault();
           const text = textArea.value;
-          textArea.value =
-            text.slice(0, position) + buttonText + text.slice(position);
+          textArea.value = text.slice(0, position) + buttonText + text.slice(position);
           textArea.selectionEnd = position + 1;
         } else {
           e.preventDefault();
