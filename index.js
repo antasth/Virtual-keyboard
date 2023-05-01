@@ -19,6 +19,8 @@ const keyboard = document.createElement('div');
 keyboard.classList.add('keyboard');
 const textArea = document.createElement('textarea');
 textArea.classList.add('text-area');
+const frame = document.createElement('div');
+frame.classList.add('frame');
 let lang = localStorage.getItem('lang');
 let caps = false;
 
@@ -27,7 +29,8 @@ document.addEventListener('click', () => {
 });
 
 body.append(content);
-content.append(textArea, keyboard);
+frame.append(textArea);
+content.append(frame, keyboard);
 
 const createKeyboard = (buttonsArray) => {
   for (let i = 1; i <= 5; i += 1) {
