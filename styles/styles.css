@@ -28,6 +28,12 @@ body {
   justify-content: center;
   align-items: center;
 }
+.body-description,
+.body-language {
+  font-family: 'Xolonium';
+  font-size: 20px;
+  color: #29d6d1;
+}
 .content {
   width: 1000px;
   display: flex;
@@ -38,16 +44,16 @@ body {
   justify-content: center;
   background-color: #190900;
   border-radius: 15px;
-  border: 3px solid orangered;
+  border: 4px solid orangered;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
     rgba(0, 0, 0, 0.22) 0px 15px 12px;
-  height: 300px;
+  height: 250px;
 }
 .text-area {
   align-self: center;
-  width: 96%;
+  width: 97%;
   height: 88%;
-  padding: 15px;
+  padding: 10px;
   resize: none;
   outline: none;
   font-family: 'Xolonium';
@@ -116,7 +122,7 @@ body {
   color: rgb(93, 255, 247);
 }
 .button:hover span {
-  color: #eca000;
+  color: orangered;
 }
 .button::before {
   content: '';
