@@ -297,18 +297,14 @@ const onKeyPressed = (e) => {
           }
         }
         if (e.code === 'Space') {
-          e.preventDefault();
-          const position = getCursorPosition();
-          const text = textArea.value;
-          const space = ' ';
-          textArea.value =
-            text.slice(0, position) + space + text.slice(position);
-          textArea.selectionStart = position + 1;
+          element.classList.add('active-key');
+          return;
         }
         const buttonName = buttons.find((button) => button.name === e.code);
         if (!controlButtons.includes(buttonName.en)) {
           const currentButton = document.querySelector(`.${e.code}`);
           const buttonText = currentButton.innerText;
+          // const buttonText = ' ';
           const position = getCursorPosition();
           e.preventDefault();
           const text = textArea.value;
