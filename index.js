@@ -142,14 +142,12 @@ keyboard.addEventListener('click', (event) => {
       event.target.classList.contains('Enter') ||
       event.target.parentElement.classList.contains('Enter')
     ) {
-      if (textArea.value) {
-        const position = getCursorPosition();
-        const text = textArea.value;
-        const enter = '\n';
-        textArea.value = text.slice(0, position) + enter + text.slice(position);
-        textArea.selectionEnd = position + 1;
-        return;
-      }
+      const position = getCursorPosition();
+      const text = textArea.value;
+      const enter = '\n';
+      textArea.value = text.slice(0, position) + enter + text.slice(position);
+      textArea.selectionEnd = position + 1;
+      return;
     }
     if (
       event.target.classList.contains('Space') ||
@@ -286,15 +284,13 @@ const onKeyPressed = (e) => {
           }
         }
         if (e.code === 'Enter') {
-          if (textArea.value) {
-            e.preventDefault();
-            const position = getCursorPosition();
-            const text = textArea.value;
-            const enter = '\n';
-            textArea.value =
-              text.slice(0, position) + enter + text.slice(position);
-            textArea.selectionEnd = position + 1;
-          }
+          e.preventDefault();
+          const position = getCursorPosition();
+          const text = textArea.value;
+          const enter = '\n';
+          textArea.value =
+            text.slice(0, position) + enter + text.slice(position);
+          textArea.selectionEnd = position + 1;
         }
         if (e.code === 'Space') {
           element.classList.add('active-key');
