@@ -17,6 +17,7 @@
 
 body {
   background-color: #040c1b;
+  background: linear-gradient(0deg, rgb(6, 24, 32), rgb(61, 99, 110), rgb(10, 58, 72));
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -31,13 +32,15 @@ body {
 .text-area {
   align-self: center;
   width: 100%;
-  height: 150px;
-  padding: 5px;
+  height:  250px;
+  padding: 15px;
   resize: none;
   outline: none;
   font-family: 'Xolonium';
   font-size: 32px;
-
+  border-radius: 20px;
+  background-color: #454545;
+  color: #FC4F00;
 }
 .text-area:focus {
   outline: none;
@@ -49,8 +52,9 @@ body {
   flex-direction: column;
   justify-content: space-between;
   row-gap: 10px;
-  padding: 1rem;
-  border: 5px solid #ff9408;
+  padding: 2rem 1rem;
+  border: 5px solid #29d6d1;
+  box-shadow: 0 0px 30px rgba(93, 255, 247, 0.9);
   border-radius: 35px;
   margin: 20px;
 }
@@ -86,6 +90,7 @@ body {
   font-size: 24px;
   font-weight: bold;
   color: #29d6d1;
+  transition: all 0.1s ease-in-out;
   z-index: 5;
 }
 .button.control span {
@@ -103,13 +108,15 @@ color: #eca000;
   width: 150%;
   position: absolute;
   /* background: conic-gradient(
-    #fe2197,
-    #b102b7,
-    #3363ff,
-    #b102b7,
-    #3363ff,
-    #b102b7,
-    #fe2197
+    #ba0000,
+    #cb3c00,
+    #d96000,
+    #e48000,
+    #eca000,
+    #f1bf00,
+    #e48000,
+    #f60202,
+    #ba0000
   ); */
   /* animation: spin 3s infinite linear; */
 }

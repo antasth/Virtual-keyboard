@@ -103,6 +103,7 @@ const toggleSymbols = () => {
       }
     }
   });
+  toggleButtonsCase();
 };
 
 // lang change
