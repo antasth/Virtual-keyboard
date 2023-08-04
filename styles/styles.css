@@ -1,0 +1,235 @@
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'Xolonium';
+  src: url('../assets/fonts/Xolonium-Bold.woff2') format('woff2'),
+    url('../assets/fonts/Xolonium-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  background-image: url(../assets/back1.jpg);
+  background-position: center;
+  background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.body-description,
+.body-language {
+  font-family: 'Xolonium';
+  font-size: 24px;
+  color: #29d6d1;
+}
+.content {
+  width: 1000px;
+  display: flex;
+  flex-direction: column;
+}
+.frame {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+  background-color: rgba(25, 9, 0, 0.5);
+  border-radius: 15px;
+  border: 4px solid orangered;
+  box-shadow: 0 0px 30px rgba(255, 69, 0, 0.8);
+  height: 250px;
+}
+.text-area {
+  align-self: center;
+  width: 97%;
+  height: 88%;
+  padding: 10px;
+  resize: none;
+  outline: none;
+  font-family: 'Xolonium';
+  font-weight: bold;
+  font-size: 40px;
+  letter-spacing: 0.4rem;
+  border: 2px solid #29d6d1;
+  border-radius: 5px;
+  box-shadow: 0 0px 30px rgba(93, 255, 247, 0.4);
+  background: rgba(178, 235, 234, 0.1);
+  color: #31f5ee;
+}
+.text-area:focus {
+  outline: none;
+}
+.keyboard {
+  max-width: 100%;
+  background-color: #040c1b;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  row-gap: 10px;
+  padding: 2rem 1rem;
+  border: 5px solid #29d6d1;
+  box-shadow: 0 0px 30px rgba(93, 255, 247, 0.9);
+  border-radius: 35px;
+  margin: 15px 20px 0;
+  margin-top: 10px;
+}
+.keyboard__row {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 8px;
+}
+.button {
+  height: 50px;
+  width: 50px;
+  border-radius: 5px;
+  box-shadow: 0 0px 30px rgba(246, 249, 198, 0.2);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.button:hover {
+  box-shadow: 0 0px 30px rgba(255, 69, 0, 0.8);;
+}
+.button:active {
+  top: 0.1em;
+  box-shadow: 0 0px 30px rgba(93, 255, 247, 0.9);
+}
+.button span {
+  position: absolute;
+  white-space: nowrap;
+  font-family: 'Xolonium';
+  font-size: 24px;
+  font-weight: bold;
+  color: #29d6d1;
+  transition: all 0.1s ease-in-out;
+  z-index: 5;
+}
+.button.control span {
+  font-size: 14px;
+}
+.button:active span {
+  color: rgb(93, 255, 247);
+}
+.button:hover span {
+  color: orangered;
+}
+.button::before {
+  content: '';
+  height: 150%;
+  width: 150%;
+  position: absolute;
+}
+.button:hover::before {
+  background: conic-gradient(
+    #ba0000,
+    #cb3c00,
+    #d96000,
+    #e48000,
+    #eca000,
+    #f1bf00,
+    #e48000,
+    #f60202,
+    #ba0000
+  );
+  animation: spin 1.5s infinite linear;
+}
+.button:active::before {
+  background: #5dfff7;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(-360deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
+}
+.button::after {
+  content: '';
+  position: absolute;
+  height: 90%;
+  width: 90%;
+  border-radius: 5px;
+  background-color: #001219;
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.4), 0 1px 2px rgba(0, 0, 0, 0.2);
+  background-image: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.3),
+    rgba(255, 255, 255, 0) 50%,
+    rgba(0, 0, 0, 0.12) 51%,
+    rgba(0, 0, 0, 0.04)
+  );
+}
+.button:active:after {
+  background-color: #081b23;
+}
+
+/* BUTTONS STYLES */
+.active-key {
+  top: 0.1em;
+  box-shadow: 0 0px 30px rgba(93, 255, 247, 0.9);
+}
+.active-key span {
+  color: #5dfff7;
+}
+.active-key::before {
+  background: #5dfff7;
+}
+
+.Backspace,
+.CapsLock,
+.Enter,
+.Tab,
+.Delete,
+.ShiftLeft,
+.ShiftRight,
+.ControlLeft,
+.ControlRight,
+.Space {
+  flex-grow: 1;
+}
+.Space {
+  flex-grow: 1;
+}
+.ControlLeft,
+.ControlRight {
+  max-width: 80px;
+}
+.button.control::before {
+  height: 300%;
+  width: 200%;
+}
+.Enter::after,
+.Backspace::after,
+.CapsLock::after,
+.ShiftLeft::after,
+.ShiftRight::after {
+  height: 88%;
+  width: 94%;
+}
+.button.Space::before {
+  height: 800%;
+  width: 150%;
+}
+.button.Space::after {
+  height: 85%;
+  width: 98%;
+}
+.button.active-key:hover {
+  box-shadow: 0 0px 30px rgba(93, 255, 247, 0.9);
+}
+.button.active-key:hover::before {
+  background: #5dfff7;
+}
