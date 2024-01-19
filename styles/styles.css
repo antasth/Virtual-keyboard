@@ -16,7 +16,7 @@
 }
 
 body {
-  background-image: url(../assets/back1.jpg);
+  background-image: url(../assets/background.jpg);
   background-position: center;
   background-size: cover;
   min-height: 100vh;
@@ -99,7 +99,7 @@ body {
 }
 
 .button:hover {
-  box-shadow: 0 0px 30px rgba(255, 69, 0, 0.8);;
+  box-shadow: 0 0px 30px rgba(255, 69, 0, 0.8);
 }
 .button:active {
   top: 0.1em;
